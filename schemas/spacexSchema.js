@@ -126,7 +126,7 @@ const MutationQuery = new GraphQLObjectType({
   name: 'Mutation',
   fields: {
     addLaunch: {
-      type: LaunchType, // ?
+      type: LaunchType, // return type
       args: {
         input: {type: inputLaunchType}
       }, 
