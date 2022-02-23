@@ -121,24 +121,17 @@ const RootQuery = new GraphQLObjectType({
     },
   },
 });
-// https://adityasridhar.com/posts/what-is-a-mutation-in-graphql-and-how-to-use-it
+
 const MutationQuery = new GraphQLObjectType({
   name: 'Mutation',
   fields: {
     addLaunch: {
-      type: LaunchType, // ?
+      type: inputLaunchType, // ?
       args: {
         input: {type: inputLaunchType}
       }, 
       resolve: function (source, args) {
-        console.log(args);
-        return {
-          flight_number: 1,
-          mission_name: "sa",
-          launch_year: "2121",
-          launch_date_local: "12",
-          launch_success: false
-        };
+
       }
     }
   }
@@ -146,5 +139,4 @@ const MutationQuery = new GraphQLObjectType({
 
 module.exports = new GraphQLSchema({
   query: RootQuery,
-  mutation: MutationQuery
 });
